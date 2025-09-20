@@ -7,7 +7,6 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
     	<script src="aframe-v1.7.1.min.js"></script>
     	<script src="aframe-ar.js"></script>
-		<!--<script src="animation-mixer.js"></script>-->
 		<script src="aframe-extras.js"></script>
 		<link rel="stylesheet" href="styles.css">
 	</head>
@@ -23,9 +22,9 @@
       </a-assets>
 
         <a-entity id="modelo_nave" gltf-model="#nave" position="0 0 0" rotation="0 0 0" scale="0.25 0.25 0.25" 
-			light="castShadow:true;" animation-mixer="clip:*;timeScale:0;">
+			light="castShadow:true;" animation-mixer="clip:volar;timeScale:0;">
         </a-entity>
-		<a-circle id="ground" radius="0.5" rotation="-90 0 0" shadow="receive: true"></a-circle>
+		<a-circle id="ground" radius="1.5" color="gray" rotation="-90 0 0" shadow="receive: true"></a-circle>
       <a-entity position="0 2 10" camera></a-entity>
 
 	<a-light type="directional" color="white" position="0 0 -1" light="castShadow:true;"></a-light>
@@ -40,10 +39,8 @@
 
 function funcion_play()
 {
-	modelo3d.setAttribute('animation-mixer','clip: *;timeScale: 0.1;');
-	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },25000);/*retardo de 1000ms*/
+	modelo3d.setAttribute('animation-mixer','clip:volar;timeScale: 0.1;');
+	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },600);/*retardo de 600ms*/
 }
 	</script>
 </html>
-
-
