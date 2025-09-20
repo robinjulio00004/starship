@@ -45,8 +45,9 @@
 
 function funcion_play()
 {
-	modelo3d.setAttribute('animation-mixer','clip: volar;timeScale: 0.3;');
+	modelo3d.setAttribute('animation-mixer','clip: *;timeScale: 0.1;');
 	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },13250);/*retardo de 1000ms*/
 }
 	</script>
 </html>
+
