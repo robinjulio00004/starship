@@ -1,0 +1,75 @@
+<!doctype html>
+<!--gestos touch-->
+<html lang="en-US">
+	<head>
+	<meta charset="utf-8"/> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<script src="aframe-v1.5.0.min.js"></script>
+    	<script src="aframe-ar.js"></script>
+		<script src="gestures.js"></script>
+		<script src="animation-mixer.js"></script>
+		<script src="aframe-extras.js"></script>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+		
+	<body style="margin : 0px; overflow: hidden;">
+	<div class="buttons">
+ 	 <button id="boton" class="button" type="button" onclick="funcion_play()">Reproducir</button>
+	</div>
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene"
+	reflection="directionalLight:a-light#dirlight;">
+      <a-assets>
+        <a-asset-item id="celular3d" src="celular3d_anim.glb">
+        </a-asset-item>
+      </a-assets>
+
+      <a-entity raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+        <a-entity id="modelo_celular" gltf-model="#celular3d" position="0 0 0" rotation="0 0 0" scale="0.25 0.25 0.25"
+		class="clickable" gesture-handler="minScale: 0.6; maxScale: 1.3" animation-mixer="clip: *;timeScale:0;">
+        </a-entity>
+      </a-entity>
+      <a-entity position="0 2 10" camera></a-entity>
+
+	<a-light type="directional" color="white" position="0 0 -1"></a-light>
+	<a-light type="directional" color="white" position="0 1 0"></a-light>
+  	<a-light id="dirlight" type="directional" intensity="0.6" color="white" position="0 1 0" light="castShadow:true;type:directional"></a-light>
+  	<a-light type="directional" color="white" position="0 0 1"></a-light>
+	<!--<a-light id="amblight" position="0 0.5 0" color="white" intensity="0.8" light="castShadow:true;type:directional"></a-light>-->
+    </a-scene>
+	
+  </body>
+	
+	<script>
+		let modelo3d= document.getElementById("modelo_celular");
+		const vdo=document.querySelector('#evideo');
+
+function funcion_play()
+{
+	modelo3d.setAttribute('animation-mixer','clip: *;timeScale: 0.3;');
+	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },13250);/*retardo de 1000ms*/
+}
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
