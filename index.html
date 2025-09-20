@@ -22,7 +22,8 @@
         </a-asset-item>
       </a-assets>
 
-        <a-entity id="modelo_nave" gltf-model="#nave" position="0 0 0" rotation="0 0 0" scale="0.25 0.25 0.25" animation-mixer="clip:volar;timeScale:0;">
+        <a-entity id="modelo_nave" gltf-model="#nave" position="0 0 0" rotation="0 0 0" scale="0.25 0.25 0.25" 
+			light="castShadow:true;" animation-mixer="clip:*;timeScale:0;">
         </a-entity>
 		<a-circle id="ground" radius="0.5" rotation="-90 0 0" shadow="receive: true"></a-circle>
       <a-entity position="0 2 10" camera></a-entity>
@@ -39,8 +40,9 @@
 
 function funcion_play()
 {
-	modelo3d.setAttribute('animation-mixer','clip:volar;timeScale: 0.1;');
+	modelo3d.setAttribute('animation-mixer','clip: *;timeScale: 0.1;');
 	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },25000);/*retardo de 1000ms*/
 }
 	</script>
 </html>
+
