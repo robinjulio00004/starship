@@ -15,7 +15,7 @@
 	<div class="buttons">
  	 <button id="boton" class="button" type="button" onclick="funcion_play()">Reproducir</button>
 	</div>
-    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false"	reflection="directionalLight:a-light#dirlight;">
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" xr-mode-ui="enabled: true"	reflection="directionalLight:a-light#dirlight;">
       <a-assets>
         <a-asset-item id="nave" src="starship_anim.glb">
         </a-asset-item>
@@ -40,7 +40,7 @@
 function funcion_play()
 {
 	modelo3d.setAttribute('animation-mixer','clip:volar;timeScale: 0.1;');
-	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },600);/*retardo de 600ms*/
+	setTimeout(()=>{modelo3d.setAttribute('animation-mixer','timeScale: 0;'); },6000);/*retardo de 6000ms*/
 }
 	</script>
 </html>
